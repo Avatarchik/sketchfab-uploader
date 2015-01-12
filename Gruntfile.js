@@ -14,7 +14,11 @@ module.exports = function(grunt) {
                 './package.json',
                 './index.html',
                 './assets/**',
-                './node_modules/**',
+                './node_modules/backbone/**',
+                './node_modules/jquery/**',
+                './node_modules/lodash/**',
+                './node_modules/nedb/**',
+                './node_modules/node-sketchfab/**',
                 './src/**',
                 './style/**',
             ]
