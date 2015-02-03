@@ -41,6 +41,7 @@ var TaskListView = Backbone.View.extend({
                 } else {
                     task.on('progress', function(value) {
                         value = parseInt(value);
+                        model.set('progress', value);
                         if (value === 100) {
                             model.set('status', TaskModel.STATUS.PROCESSING);
                         } else {

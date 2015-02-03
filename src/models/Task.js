@@ -21,6 +21,7 @@ var Task = Backbone.Model.extend({
         size: 0,
 
         status: STATUS.UPLOADING,
+        progress: 0,
         error: '',
         url: '',
     }

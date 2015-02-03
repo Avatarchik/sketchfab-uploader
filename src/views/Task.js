@@ -17,7 +17,11 @@ statuses[TaskModel.STATUS.ERROR] = 'Error';
 var tpl = _.template([
     '<div>',
     '   <span class="task-name" title="<%= file %>"><%= name %></span>',
-    '   <span class="task-status"><%= statusText %> <%= error %></span>',
+    '   <span class="task-status">',
+    '       <%= statusText %> ',
+    '       <% if (status === 1){ %> (<%= progress %> %) <% } %>',
+    '       <%= error %>',
+    '   </span>',
     '   <a class="task-url" href="<%= url %>" target="_blank"><%= url %></a>',
     '</div>'
 ].join(''));

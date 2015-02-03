@@ -9,7 +9,10 @@ function UploadManager(token) {
 UploadManager.prototype.setToken = function(token) {
     if (token) {
         this._token = token;
-        this._client = new Client(token);
+        this._client = new Client({
+            type: 'token',
+            token: token
+        });
     }
 }
 
