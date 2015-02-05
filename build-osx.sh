@@ -4,6 +4,7 @@ TARGET="build/sketchfab-uploader.app"
 
 if [ -d "$DIRECTORY" ]; then
     rm -rf "$TARGET"
+    mkdir build
     cp -r "$DIRECTORY" "$TARGET"
     cat build.txt | xargs -I % cp -R % "$TARGET/Contents/Resources/app.nw/"
     cp assets/icon.icns "$TARGET/Contents/Resources/nw.icns"
