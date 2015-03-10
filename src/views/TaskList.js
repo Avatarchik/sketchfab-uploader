@@ -5,6 +5,8 @@ var _ = require('lodash');
 var Backbone = require('backbone');
 Backbone.$ = $;
 
+var notifier = require('node-notifier');
+
 var TaskModel = require('../models/Task.js');
 var TaskView = require('./Task.js');
 
@@ -48,13 +50,34 @@ var TaskListView = Backbone.View.extend({
                             model.set('status', TaskModel.STATUS.UPLOADING);
                         }
                     });
+
                     task.on('success', function(url) {
                         model.set('status', TaskModel.STATUS.FINISHED);
                         model.set('url', url);
+
+                        notifier.notify({
+                            'title': model.get('name') + ' is ready!',
+                            'message': url,
+                            'wait': true
+                        });
+
+                        notifier.on('click', function (notifierObject, options) {
+                            var gui = window.require('nw.gui');
+                            gui.Shell.openExternal(url);
+                        });
+
                     });
+
                     task.on('error', function(error) {
                         model.set('status', TaskModel.STATUS.ERROR);
                         model.set('error', error);
+
+                        notifier.notify({
+                            'title': model.get('name') + ' failed :(',
+                            'message': 'An error occured while processing your model.'
+                        });
+
+
                     });
                 }
             }
