@@ -17,7 +17,7 @@ win.menu = nativeMenuBar;
 
 // DB
 var Datastore = require('nedb');
-var path = require('path')
+var path = require('path');
 var db = new Datastore({
     filename: path.join(require('nw.gui').App.dataPath, 'config.db'),
     autoload: true
@@ -34,8 +34,8 @@ function onConfigReady(config) {
     // Upload manager
     var UploadManager = require('./src/UploadManager.js');
     var uploadManager = new UploadManager();
-    if (config.getToken()) {
-        uploadManager.setToken(config.getToken());
+    if (config.getAuth()) {
+        uploadManager.setAuth(config.getAuth());
     }
 
     // App

@@ -4,14 +4,16 @@ function Config(db, callback) {
     this._db = db;
     this._data = {
         key: 'config',
-        token: ''
-    }
+        auth: ''
+    };
+
     this.createDefaultConfig = function(db, callback) {
         this._db.insert(this._data, callback);
     };
-    this.setToken = function(token, callback) {
+
+    this.setAuth = function(auth, callback) {
         var self = this;
-        this._data.token = token;
+        this._data.auth = auth;
         this._db.update({
             key: 'config'
         }, this._data, {
@@ -20,8 +22,9 @@ function Config(db, callback) {
             callback && callback(err, numReplaced);
         });
     };
-    this.getToken = function() {
-        return this._data.token;
+
+    this.getAuth = function() {
+        return this._data.auth;
     };
 
     this._db.find({
@@ -30,7 +33,7 @@ function Config(db, callback) {
         if (err) {
             this.createDefaultConfig(db, function(err, data) {
                 callback(this);
-            })
+            });
         } else {
             if (docs.length > 0) {
                 this._data = docs[0];
@@ -38,7 +41,7 @@ function Config(db, callback) {
             } else {
                 this.createDefaultConfig(db, function(err, data) {
                     callback(this);
-                })
+                });
             }
         }
     }.bind(this));

@@ -31,6 +31,12 @@ html {
     padding: 4px;
 }
 
+.login,
+.logout-wrap,
+.username {
+    display: none;
+}
+
 .over {
     background: #FFE;
 }

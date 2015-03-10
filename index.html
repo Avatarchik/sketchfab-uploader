@@ -9,8 +9,12 @@
 <body>
 <div class="app">
     <div class="toolbar noselect">
-        <button type="button" class="clear" style="float:right">Clear completed</button>
-        <input type="text" name="token" placeholder="Enter token" size="40" value="">
+        <div class="user">
+            <span class="loading">Loading ...</span>
+            <a href="#" class="login">Login</a>
+            <span class="username"></span>
+            <span class="logout-wrap"> | <a href="#" class="logout">Logout</a></span>
+        </div>
     </div>
     <ul class="tasks"></ul>
 </div>

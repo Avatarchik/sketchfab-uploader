@@ -1,20 +1,20 @@
 var Client = require('node-sketchfab');
 
-function UploadManager(token) {
-    if (token) {
-        this.setToken(token);
+function UploadManager(auth) {
+    if (auth) {
+        this.setAuth(auth);
     }
 }
 
-UploadManager.prototype.setToken = function(token) {
-    if (token) {
-        this._token = token;
-        this._client = new Client({
-            type: 'token',
-            token: token
+UploadManager.prototype.setAuth = function(auth) {
+    if (auth) {
+        this._auth = auth;
+        this._client = new Client(auth, {
+            BASE_API_URL: 'https://api.sketchfab.com',
+            BASE_SERVER_URL: 'https://sketchfab.com'
         });
     }
-}
+};
 
 UploadManager.prototype.upload = function(params, callback) {
     if (this._client) {
@@ -22,6 +22,6 @@ UploadManager.prototype.upload = function(params, callback) {
     } else {
         callback('Token is missing');
     }
-}
+};
 
 module.exports = UploadManager;
