@@ -32,7 +32,7 @@ var config = new Config(db, function(data){
 });
 
 function onConfigReady(config) {
-
+win.showDevTools();
     // Upload manager
     var UploadManager = require('./src/UploadManager.js');
     var uploadManager = new UploadManager();
@@ -62,5 +62,5 @@ function onConfigReady(config) {
     gui.Window.get().show();
 
     // Open dev tools
-    // win.showDevTools();
+    
 }

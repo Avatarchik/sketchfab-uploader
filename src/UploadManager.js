@@ -10,8 +10,8 @@ UploadManager.prototype.setAuth = function(auth) {
     if (auth) {
         this._auth = auth;
         this._client = new Client(auth, {
-            BASE_API_URL: 'https://api.sketchfab.com',
-            BASE_SERVER_URL: 'https://sketchfab.com'
+            BASE_API_URL: 'https://thing.fatvertex.com',
+            BASE_SERVER_URL: 'https://thing.fatvertex.com'
         });
     }
 };
