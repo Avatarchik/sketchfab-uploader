@@ -7,13 +7,15 @@ Backbone.$ = $;
 
 var gui = require('nw.gui');
 
-// Native menu for OSX
-var win = gui.Window.get();
-var nativeMenuBar = new gui.Menu({
-    type: "menubar"
-});
-nativeMenuBar.createMacBuiltin("Sketchfab Uploader");
-win.menu = nativeMenuBar;
+if (process.platform.match('darwin')) {
+    // Native menu for OSX
+    var win = gui.Window.get();
+    var nativeMenuBar = new gui.Menu({
+        type: "menubar"
+    });
+    nativeMenuBar.createMacBuiltin("Sketchfab Uploader");
+    win.menu = nativeMenuBar;
+}
 
 // DB
 var Datastore = require('nedb');
