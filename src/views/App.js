@@ -133,7 +133,7 @@ var AppView = Backbone.View.extend({
 
             }
 
-        } );
+        }.bind( this ) );
 
     }
 
