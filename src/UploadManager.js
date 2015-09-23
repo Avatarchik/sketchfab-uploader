@@ -1,4 +1,4 @@
-var Client = require('node-sketchfab');
+var Client = require('sketchfab');
 
 function UploadManager(auth) {
     if (auth) {

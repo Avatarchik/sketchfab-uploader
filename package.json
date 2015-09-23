@@ -1,6 +1,6 @@
 {
   "name": "sketchfab-uploader",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Sketchfab Uploader is a desktop client for uploading 3D files to Sketchfab",
   "author": "Maurice Svay <maurice@svay.com> (http://svay.com/)",
   "repository": {
@@ -18,7 +18,7 @@
     "lodash": "^2.4.1",
     "nedb": "^1.0.1",
     "node-notifier": "^4.1.2",
-    "node-sketchfab": "^0.0.3"
+    "sketchfab": "^0.0.4"
   },
   "window": {
     "show": false,

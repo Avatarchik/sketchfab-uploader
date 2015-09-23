@@ -8,7 +8,7 @@ var querystring = require('querystring');
 
 var DndTargetView = require('./DndTarget.js');
 var TaskListView = require('./TaskList.js');
-var Sketchfab = require('node-sketchfab');
+var Sketchfab = require('sketchfab');
 
 var OAUTH_CLIENT_ID = '3FzFLz89bxNoYmRd=CCYhBHN62PgdeQgHZq0Ri0h';
 
