@@ -6,6 +6,7 @@ var Backbone = require('backbone');
 Backbone.$ = $;
 
 var gui = require('nw.gui');
+global.document = window.document;
 
 if (process.platform.match('darwin')) {
     // Native menu for OSX
